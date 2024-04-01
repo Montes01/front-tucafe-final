@@ -24,7 +24,7 @@ const PerfilBusiness = () => {
   store.subscribe(() => {
     const state = store.getState()
     console.log(state.user)
-    setActualName(state.user.name)
+    setActualName(state.user.nombre)
   })
   useEffect(() => {
     const userDataString = localStorage.getItem('userData');
@@ -60,11 +60,46 @@ const PerfilBusiness = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Datos enviados:", formData);
-  };
 
+    const url = ` http://localhost:8080/tuCafe/v1/business/1`;
+    let name = formData.name
+    let phone = formData.phone
+    let city = formData.city
+    let country = formData.country
+    let photo = formData.image;
+    const newData = {
+      name,
+      phone,
+      city,
+      country,
+      photo
+    };
+
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token,
+        },
+        body: JSON.stringify(newData),
+      });
+
+      console.log({ response, newData })
+
+      if (response.ok)
+        alert('Cambios guardados correctamente');
+      else
+        throw new Error('Error al guardar los cambios');
+
+    } catch (error) {
+      console.error(error);
+      alert('Fallo al guardar los cambios, intente más tarde');
+    }
+  }
   const handleChangePassword = () => {
     console.log("Cambiando contraseña...");
   };

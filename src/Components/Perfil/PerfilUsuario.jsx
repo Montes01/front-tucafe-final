@@ -6,6 +6,7 @@ import './Perfil.css';
 import { store } from "../../store/store";
 import axios from 'axios'; // Importa Axios para hacer peticiones HTTP
 import Swal from 'sweetalert2';
+import { useSelector } from "react-redux";
 
 // Configuración de Firebase (reemplaza con tu propia configuración)
 const firebaseConfig = {
@@ -32,8 +33,9 @@ const PerfilUsuario = () => {
   const [actualPais, setActualPais] = useState("");
   const [file, setFile] = useState(null); // Estado para el archivo seleccionado
   const [image, setImage] = useState(null); // Estado para la URL de la imagen
-
+  const user = useSelector((state) => state.user);
   useEffect(() => {
+    console.log(user)
     setActualEmail(store.getState().user?.email);
     setActualName(store.getState().user?.nombre);
     setActualTelefono(store.getState().user?.telefono);
@@ -91,24 +93,53 @@ const PerfilUsuario = () => {
 
   const handleGeneralSubmit = async (e) => {
     e.preventDefault();
-    console.log("Guardando cambios generales...");
-    try {
-      const newData = {
-        nombre: actualName,
-        email: actualEmail,
-        telefono: actualTelefono,
-        ciudad: actualCiudad,
-        pais: actualPais
-      };
-      
-      // Enviar los cambios al servidor y actualizar la base de datos MySQL
-      await axios.post('http://tu-servidor.com/actualizar-perfil', newData);
+    const url = "http://localhost:8080/tuCafe/v1/client/1"
+    // try { 
+    let name = actualName
+    let phone = actualTelefono
+    let city = actualCiudad
+    let country = actualPais
+    let photo = localStorage.getItem('profileImage');
+    const newData = {
+      name,
+      phone,
+      city,
+      country,
+      photo
+    };
 
-      alert('Cambios guardados correctamente');
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token,
+        },
+        body: JSON.stringify(newData),
+      });
+
+
+      if (response.ok) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Cambios guardados correctamente',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } else {
+        throw new Error('Error al guardar los cambios');
+      }
     } catch (error) {
-      console.error(error);
+      console.error(await error);
       alert('Fallo al guardar los cambios, intente más tarde');
     }
+
+    //   alert('Cambios guardados correctamente');
+    // } catch (error) {
+    //   console.error(error);
+    //   alert('Fallo al guardar los cambios, intente más tarde');
+    // }
   };
 
   return (
@@ -143,9 +174,9 @@ const PerfilUsuario = () => {
             <form onSubmit={handleGeneralSubmit}>
               <div className="form-group">
                 <label>Nombre:</label>
-                <input defaultValue={actualName} 
-                type="text" 
-                className="form-control" />
+                <input defaultValue={actualName}
+                  type="text"
+                  className="form-control" />
               </div>
               <div className="form-group">
                 <label>Telefono:</label>

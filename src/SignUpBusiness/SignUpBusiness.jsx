@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const categories = ['cafe', 'Restaurante', 'Mirador', 'Bar', 'Pastelería', 'Heladería', 'Otros', ];
+const categories = ['cafe', 'Restaurante', 'Mirador', 'Bar', 'Pastelería', 'Heladería', 'Otros',];
 
 const SignUpBusiness = () => {
   const [formData, setFormData] = useState({
@@ -33,6 +33,7 @@ const SignUpBusiness = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, name, password, category } = formData;
+    console.log({ email, name, password, category });
     try {
       const response = await fetch('http://localhost:8080/tuCafe/v1/business/register', {
         method: 'POST',
@@ -46,6 +47,8 @@ const SignUpBusiness = () => {
           category
         }),
       });
+
+      console.log(response);
 
       if (response.ok) {
         Swal.fire({
@@ -137,7 +140,7 @@ const SignUpBusiness = () => {
         </Link>
       </div>
       <div className='registro'>
-      ¿Quieres registrarte como Usuario?
+        ¿Quieres registrarte como Usuario?
         <Link to="/signup">
           <u><b> Registrar Como Usuario</b></u>
         </Link>
