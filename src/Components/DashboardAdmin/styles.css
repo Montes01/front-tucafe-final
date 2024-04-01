@@ -1,0 +1,135 @@
+/* styles.css */
+.dashboard {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #f5d76e; /* Amarillo */
+    color: #6e4b3d; /* Café */
+    font-size: 16px; /* Tamaño de fuente más grande */
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 15px 10px; /* Mayor espaciado entre elementos */
+  }
+  
+  .sidebar ul li a {
+    color: #6e4b3d; /* Café */
+    text-decoration: none;
+  }
+  
+  #content-wrapper {
+    flex: 1;
+  }
+  
+   */
+  .topbar {
+    background-color: #6e4b3d; /* Café */
+    color: #f5d76e; /* Amarillo */
+    padding: 15px; /* Mayor espaciado */
+    font-size: 18px; /* Tamaño de fuente más grande */
+  }
+  
+  .container-fluid {
+    padding: 20px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    padding: 15px 10px; /* Mayor espaciado */
+    border: 1px solid #6e4b3d; /* Café */
+    color: #6e4b3d; /* Café */
+  }
+  
+  .table th {
+    background-color: #f5d76e; /* Amarillo */
+    color: #6e4b3d; /* Café */
+  }
+  
+
+
+  /* styles.css */
+.cafe-table-container {
+    margin-top: 20px;
+  }
+  
+  .table-heading {
+    font-size: 24px;
+    color: #6e4b3d; /* Café */
+    margin-bottom: 20px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f5d76e; /* Amarillo */
+  }
+  
+  .table th, .table td {
+    padding: 15px 10px;
+    border: 1px solid #6e4b3d; /* Café */
+    color: #6e4b3d; /* Café */
+  }
+  
+  .table th {
+    background-color: #f5d76e; /* Amarillo */
+    color: #6e4b3d; /* Café */
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  /* CafeTable.css */
+.edit-button,
+.save-button {
+  background-color: green;
+  color: white;
+  margin-right: 10px; /* Espaciado derecho entre los botones */
+  padding: 5px;
+}
+
+.delete-button,
+.cancel-button {
+  background-color: red;
+  color: white;
+  padding: 5px;
+}
+
+
+/* CafeTable.css */
+.table-heading {
+  font-size: 3rem; /* Tamaño de letra para el encabezado de la tabla */
+}
+
+.table-cell {
+  font-size: 2rem; /* Tamaño de letra para las celdas de la tabla */
+}
+
+/* Estilos para los botones (puedes ajustarlos según tus preferencias) */
+.save-button,
+.cancel-button {
+  font-size: 2rem; /* Tamaño de letra para los botones de guardar y cancelar */
+}
+
+.edit-button,
+.delete-button {
+  font-size: 2rem; /* Tamaño de letra para los botones de editar y eliminar */
+}
+
+/* .description-textarea{
+  width: 10%;
+} */
+
+  /* CafeTable.css */
+ 

@@ -1,0 +1,22 @@
+.popover {
+    position: absolute;
+    top: calc(100% + 10px); /* Posición debajo del input */
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+    width: 100%; /* O ajusta el ancho según sea necesario */
+
+    a {
+        font-size: 20px;
+
+    }
+  }
+  
+  /* .search-result {
+    margin-bottom: 5px;
+  } */
+  
+  /* Otros estilos según sea necesario */
+  

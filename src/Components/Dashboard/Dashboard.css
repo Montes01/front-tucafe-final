@@ -1,0 +1,77 @@
+/* Estilos base para el dashboard */
+.dashboard {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+}
+
+/* Estilos para las secciones del dashboard */
+.dashboard-section {
+  background-color: #fff; 
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  padding: 20px;
+  margin-bottom: 20px;
+  width: calc(50% - 20px); /* Ajustar el ancho para dos columnas con un espacio entre ellas */
+  box-sizing: border-box; /* Incluir el relleno y el borde en el ancho */
+}
+
+/* Estilos para las secciones de perfil */
+.profile-section {
+  margin: 0 10px; 
+  flex: 1; /* Para que las secciones de perfil ocupen todo el ancho disponible */
+}
+
+/* Estilos para los títulos de las secciones */
+.dashboard-section h2 {
+  color: #713f13;
+  margin-bottom: 15px; 
+  font-size: 20px;
+  text-align: center; 
+}
+
+/* Estilos para los párrafos dentro de las secciones */
+.dashboard-section p {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Estilos específicos para la clase 'resumen-actividad' */
+.resumen-actividad {
+  font-size: 16px;
+  font-weight: bold; 
+  color: #333; 
+}
+
+/* Estilos para los títulos de las secciones de perfil */
+.profile-section h3 {
+  text-align: center;
+}
+
+/* Media query para 991px */
+@media (max-width: 991px) {
+  .dashboard-section {
+    width: calc(50% - 20px); /* Cambiar el ancho para dos columnas con un espacio entre ellas */
+  }
+}
+
+/* Media query para 768px */
+@media (max-width: 768px) {
+  .dashboard-section {
+    width: calc(100% - 20px); /* Cambiar el ancho al 100% en pantallas pequeñas */
+  }
+
+  .profile-section {
+    margin: 10px 0; /* Añadir espacio superior e inferior en pantallas pequeñas */
+  }
+}
+
+/* Media query para 450px */
+@media (max-width: 450px) {
+  
+  
+
+  
+  
+}

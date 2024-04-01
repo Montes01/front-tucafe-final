@@ -1,0 +1,38 @@
+/* Estilos generales del contenedor del chatbot */
+.chatbot-container {
+    position: fixed;
+    bottom: 10px; /* Espacio desde el borde inferior de la pantalla */
+    right: 20px; /* Espacio desde el borde derecho de la pantalla */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    max-width: 90vw; /* Ancho máximo relativo al ancho de la ventana */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  }
+  
+  /* Estilos para el iframe */
+  .chatbot-container iframe {
+    border: none;
+    width: 100%;
+  }
+  
+  /* Estilos para el botón */
+  .chatbot-container button {
+    background-color: #747a80;
+    color: #fff;
+    border: none;
+    border-radius: 0 0 10px 10px;
+    padding: 10px 10px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Estilos cuando el botón está en estado hover */
+  .chatbot-container button:hover {
+    background-color: #713f13;
+  }
+  

@@ -1,0 +1,14 @@
+/* CafeTable.css */
+.edit-button,
+.save-button {
+  background-color: green;
+  color: white;
+  margin-right: 10px; /* Espaciado derecho entre los botones */
+}
+
+.delete-button,
+.cancel-button {
+  background-color: red;
+  color: white;
+}
+
